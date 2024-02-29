@@ -1,5 +1,10 @@
-export function Island({isUserIsland, island}) {
+import './Island.css'
+export function Island({isCentered, isUserIsland, island}) {
+    //island -> {id, island_image, island_tag}
+    const island_class = isUserIsland|isCentered ? "centered_island" : "island"
     return(
-        <></>
+        <div className={`image-container ${island_class}`}>
+            <img src={require(`${island.island_image}`)}/>
+        </div>
     )
 }

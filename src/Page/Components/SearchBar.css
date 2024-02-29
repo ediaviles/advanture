@@ -1,0 +1,39 @@
+.tag-input-container {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0; /* Light grey background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 5px; /* Padding around content */
+    max-width: 300px; /* Maximum width */
+    margin: 0 auto;
+  }
+  
+  .tag-input {
+    flex-grow: 1; /* Ensures the input takes up available space */
+    border: none; /* No border */
+    background-color: transparent; /* Transparent background */
+    color: #606060; /* Grey text color */
+    padding-left: 10px; /* Padding inside the input */
+    font-size: 16px; /* Size of the input text */
+  }
+  
+  .tag-input:focus {
+    outline: none; /* No outline on focus */
+  }
+  
+  .add-button {
+    background-color: #00bcd4; /* Cyan background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 15px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* No outline */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    margin-left: 10px; /* Space between the input and the button */
+  }
+  
+  .add-button:hover {
+    background-color: #0097a7; /* Slightly darker background on hover */
+  }
+  

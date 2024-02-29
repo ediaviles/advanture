@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Island} from './Island'
+import './Home.css'
+//Islands will have three attributes, id, island_image, island_tag
 
 export function Home() {
     const [selectedIsland, setSelectedIsland] = useState(null)
@@ -11,11 +13,11 @@ export function Home() {
     return (
         // TODO: load user's island, and islands that the user is following
         <div className={"container"}>
-            <Island isUserIsland={true} island={null}/>
+            <Island isCentered={true} isUserIsland={true} island={{id:0, island_image:"./Island_Images/island_1.png", island_tag:null}}/>
             {islands.map((island) => {
-                <Island isUserIsland={false} island={island}/>
+                return(<Island isCentered={false} isUserIsland={false} island={island}/>)
             })}
-            <button>+</button>
+            <button className='floating-button'>+</button>
         </div>
     )
 }

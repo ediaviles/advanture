@@ -1,11 +1,12 @@
 import {Home} from './Components/Home'
+import {Search} from './Components/Search'
 import './Page.css'
 
 export function Page({navBarIcon}) {
     const loadPageContent = () => {
         switch (navBarIcon) {
             case 1:
-                return <div>search</div>;
+                return <Search/>;
             case 2:
                 return <Home/>;
             case 3:

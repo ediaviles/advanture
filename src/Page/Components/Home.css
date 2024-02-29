@@ -1,0 +1,23 @@
+.floating-button {
+    position: fixed; /* Fixed position */
+    bottom: 20px; /* 20 pixels from the bottom */
+    right: 20px; /* 20 pixels from the right */
+    background-color: #7DD2DE; /* Replace with the color you want */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    border-radius: 50%; /* Circular border */
+    width: 60px; /* Width of the button */
+    height: 60px; /* Height of the button */
+    font-size: 36px; /* Size of the plus symbol */
+    line-height: 60px; /* Center the plus symbol vertically */
+    text-align: center; /* Center the plus symbol horizontally */
+    box-shadow: 2px 2px 3px #999; /* Shadow effect */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* Remove outline on focus */
+  }
+  
+  /* Optional: Style for hover effect */
+  .floating-button:hover {
+    background-color: #2980b9; /* Darker shade when hovered */
+  }
+  
