@@ -1,0 +1,52 @@
+.user-label {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 50px; /* More pronounced roundness for the pill shape */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 10px;
+    margin-bottom: 20px; /* Space between components */
+    box-sizing: border-box;
+    max-width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-profile-picture {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-info {
+    flex-grow: 1;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+}
+
+.user-topic {
+    font-size: 0.85em;
+    color: #666;
+}
+
+.island-image-container {
+    flex-shrink: 0; /* Prevents the island image from shrinking */
+    margin-left: auto;
+}
+
+.island-image {
+    width: 60px; /* Adjust the size as needed */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px;
+}
+
+/* If you have a parent container for all UserLabels, add this */
+.parent-container {
+    display: flex;
+    flex-direction: column;
+}

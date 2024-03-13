@@ -10,7 +10,6 @@ export function SearchBar({tagList, setTagList}) {
 
     const handleAddClick = () => {
         // Handle the click event for adding the tag
-        console.log('Added tag:', tag);
         setTagList([...tagList, tag])
         // Add your logic to handle the tag addition here
     };
@@ -21,7 +20,7 @@ export function SearchBar({tagList, setTagList}) {
         className="tag-input" 
         value={tag} 
         onChange={handleChange} 
-        placeholder="#interior design" // Placeholder text if needed
+        placeholder="#interior-design" // Placeholder text if needed
       />
       <button className="add-button" onClick={handleAddClick}>Add</button>
     </div>

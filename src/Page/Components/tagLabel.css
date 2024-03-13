@@ -1,0 +1,25 @@
+.tag {
+    display: flex;
+    align-items: center;
+    background-color: #e57373; /* Adjust the color to match the uploaded image */
+    color: white;
+    padding: 8px 20px 8px 20px;
+    border-radius: 20px;
+    font-size: 16px;
+    position: relative;
+    margin: 10px;
+    font-weight: bold;
+  }
+  
+  .tag-text {
+    /* Center the text in the tag */
+    
+
+  }
+  
+  .tag-close {
+    background-color: #fff; /* White circle */
+    border-radius: 50%; /* Make it round */
+    width: 20px; /* Match the size to your design */
+    height: 20px; /* Match the size to */
+  }
