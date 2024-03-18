@@ -6,7 +6,6 @@ const userSchema = new mongoose.Schema({
     firstName: String,
     lastName: String,
     password: String,
-    islands: Array,
     },
     {collection : "users"}
 );
