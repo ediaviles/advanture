@@ -37,7 +37,7 @@ export function Search() {
                     )
                 })}
             </ul>
-            <Island isCentered={true} isUserIsland={false} island={{id:0, island_image:"./Island_Images/island_2.png", island_tag:null}} />
+            <Island isCentered={true} isUserIsland={false} island={{id:0, island_tag:null}} island_image={"./Island_Images/island_2.png"}/>
             <div>
                 {recommendedUserList.map((user) => {
                     return(

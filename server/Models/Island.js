@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const islandSchema = new mongoose.Schema({
-    islandId: Number,
+    islandName: String,
     tags: Array,
     description: String,
     images: Array,

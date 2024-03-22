@@ -4,17 +4,21 @@ const PORT = process.env.PORT || 3001;
 const cors = require('cors')
 
 app.use(cors());
+app.use(express.json())
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/local");
+mongoose.connect("mongodb://localhost/Advanture");
 console.log(mongoose.connection.readyState)
 
-// TODO: GET islands by username
+const User = require("./Models/User")
+const Island = require("./Models/Island")
+
+// GET islands by username
 app.get('/islands/:username', async (req, res) => {
   try {
       // First, find the user by username to get the userId
-      const user = await User.findOne({ userName: req.params.username });
+      const user = await User.findOne({ username: req.params.username });
       if (!user) {
           return res.status(404).json({ message: 'User not found' });
       }
@@ -34,7 +38,7 @@ app.get('/islands/:username', async (req, res) => {
 
 // TODO: GET user information
 
-// TODO: POST new user
+// POST new user
 app.post('/users', async (req, res) => {
   try {
       // Check if the user already exists
@@ -57,11 +61,13 @@ app.post('/users', async (req, res) => {
   }
 });
 
-// TODO: POST new island
-app.post('/islands', async (req, res) => {
+// POST new island
+app.post('/save_island', async (req, res) => {
   try {
       // Create a new island using the request body data
-      const newIsland = new Island(req.body);
+      console.log(req.body.island)
+      const newIsland = new Island(req.body.island);
+      console.log(newIsland)
 
       // Save the new island to the database
       const savedIsland = await newIsland.save();
