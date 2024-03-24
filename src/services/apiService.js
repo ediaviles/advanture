@@ -30,4 +30,16 @@ export const saveIsland = async (data) => {
     }
 };
 
+// Function to get islands from list of tags
+export const getIslandsFromTags = async (data) => {
+  console.log(data)
+  try {
+    const queryString = data.tags.join(',');
+    const response = await apiClient.get(`/islands-by-tags?tags=${encodeURIComponent(queryString)}`);
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
 // Add more functions for other API calls as needed

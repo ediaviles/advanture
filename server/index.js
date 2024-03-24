@@ -35,6 +35,20 @@ app.get('/islands/:username', async (req, res) => {
 });
 
 // TODO: GET islands from list of tags
+app.get('/islands-by-tags', async (req, res) => {
+    try {
+        const tags = req.query.tags ? req.query.tags.split(',') : [];
+        console.log(tags)
+        const islands = await Island.find({
+            tags: { $in: tags }
+        })
+        console.log(islands)
+        res.json(islands);
+    } catch (error) {
+        console.error(error)
+        res.status(500).json({ message: 'Server error' })
+    }
+})
 
 // TODO: GET user information
 
