@@ -1,0 +1,87 @@
+.login-background {
+    position: relative;
+    height: 100vh;
+    background: url('./Island_Images/login_island.png') no-repeat center center fixed; /* Replace with the path to your background image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+    filter: blur(5px);
+    z-index: 0;
+  }
+  
+  .login-container {
+    position: relative;
+    z-index: 1;
+    width: 350px; /* Adjust width as needed */
+  }
+  
+  .login-form {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .login-form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+  }
+  
+  .input-container {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .input-container input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  
+  .input-container input:focus {
+    border-color: #a0a0a0;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #62BCD8;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .login-button:hover {
+    background-color: #62BCD8;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .footer span {
+    color: #62BCD8;
+    cursor: pointer;
+  }
+  

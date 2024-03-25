@@ -1,0 +1,36 @@
+.create-account-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .create-account-form h1 {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .create-account-form input[type="text"] {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .create-account-form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .create-account-form button:hover {
+    background-color: #0056b3;
+  }
+  

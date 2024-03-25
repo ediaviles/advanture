@@ -53,10 +53,11 @@ app.get('/islands-by-tags', async (req, res) => {
 // TODO: GET user information
 
 // POST new user
-app.post('/users', async (req, res) => {
+app.post('/create-user', async (req, res) => {
   try {
       // Check if the user already exists
-      const existingUser = await User.findOne({ userName: req.body.userName });
+      console.log(req.body)
+      const existingUser = await User.findOne({ userName: req.body.username });
       if (existingUser) {
           return res.status(400).json({ message: 'User already exists' });
       }
