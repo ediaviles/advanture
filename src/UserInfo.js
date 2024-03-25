@@ -41,6 +41,8 @@ export var UserProfile = (function() {
         setLastName(user.lastName)
         setUsername(user.username)
         setUserId(user.id)
+        window.dispatchEvent(new CustomEvent('user-login-status-changed'));
+
     }
 
     return {

@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {NavBar} from './NavBar/NavBar'
 import {Page} from './Page/Page'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
@@ -19,19 +19,44 @@ function App() {
       </div>
     );
   }
-  const isLoggedIn = UserProfile.getUsername() !== ""
+  const [isLoggedIn, setIsLoggedIn] = useState(UserProfile.getUsername() !== "");
+
+  useEffect(() => {
+    const handleLoginStatusChange = () => {
+      setIsLoggedIn(UserProfile.getUsername() !== "");
+    };
+
+    // Listen for the custom event
+    window.addEventListener('user-login-status-changed', handleLoginStatusChange);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('user-login-status-changed', handleLoginStatusChange);
+    };
+  }, []); 
+
+  
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/login" element={<Login/>}/>
-        { isLoggedIn ? (
-          <Route path="/" element={<MainApp/>}/>
-        ) : (
-           <Route path="/" element={<Navigate to="/login"/>}/>
-        )
-          
+        { !isLoggedIn ? (
+            <Route path="/login" element={<Login/>}/>
+          ) : (
+            <Route path="/login" element={<Navigate to="/"/>}/>
+          )    
         }
-        <Route path="/create-account" element={<CreateAccount/>} />
+        { isLoggedIn ? (
+            <Route path="/" element={<MainApp/>}/>
+          ) : (
+            <Route path="/" element={<Navigate to="/login"/>}/>
+          )
+        }
+        { !isLoggedIn ? (
+            <Route path="/create-account" element={<CreateAccount/>}/>
+          ) : (
+            <Route path="/create-account" element={<Navigate to="/"/>}/>
+          )    
+        }
       </Routes>
     </BrowserRouter>
   )
