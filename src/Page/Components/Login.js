@@ -1,13 +1,30 @@
 import React, { useState } from 'react';
 import './Login.css'; // Make sure to create a corresponding CSS file
+import * as apiService from '../../services/apiService'
+import { UserProfile } from '../../UserInfo'
+import { useNavigate } from 'react-router-dom';
+
 
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  
+  const navigate = useNavigate();
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle the login logic here
+    const handleLogin = async (userData) => {
+        try {
+            const result = await apiService.loginUser(userData)
+            UserProfile.loginUser(result)
+            navigate('/')
+        } catch (error) {
+            console.log('Incorrect username or password: ', error)
+        }
+    }
+    handleLogin({username: username, password: password})
     console.log(username, password);
   };
 
@@ -34,7 +51,7 @@ export const Login = () => {
           </div>
           <button type="submit" className="login-button">✔</button>
           <div className="footer">
-            <span>Don't have an account?</span>
+            <span onClick={() => {navigate('/create-account')}}>Don't have an account?</span>
           </div>
         </form>
       </div>

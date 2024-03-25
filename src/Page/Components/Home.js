@@ -3,14 +3,14 @@ import {Island} from './Island'
 import './Home.css'
 import {AddIsland} from './AddIsland'
 import * as apiService from '../../services/apiService'
+import { UserProfile } from '../../UserInfo'
+
 //Islands will have three attributes, id, island_image, island_tag
 
 export function Home() {
     const [selectedIsland, setSelectedIsland] = useState(null)
     const [islands, setIslands] = useState([])
     const [isAdding, setIsAdding] = useState(false); // State to manage AddIsland component visibility
-    const temporaryUsername = "eaviles" // currently hardcoded for this iteration
-    const temporaryUserId = 1
 
     useEffect(() => {
         // This code will run only once after the component mounts
@@ -24,13 +24,14 @@ export function Home() {
                 console.error('Error fetching data:', error);
             }
         }
-        loadIslands(temporaryUsername)
+        loadIslands(UserProfile.getUsername())
     }, [])
     const handleAddIsland = async (newIsland) => {
         // Add the newIsland to the islands state
-        const island = {...newIsland, owner_id: temporaryUserId}
+        const island = {...newIsland, owner_id: UserProfile.getUsername()}
+        console.log(UserProfile.getUserId())
         try {
-            const savedIsland = await apiService.saveIsland({island: island, username: temporaryUsername})
+            const savedIsland = await apiService.saveIsland({island: island, username: UserProfile.getUsername()})
             setIslands(prevIslands => [...prevIslands, island]);
         } catch (error) {
             console.error('Error saving data: ', error)

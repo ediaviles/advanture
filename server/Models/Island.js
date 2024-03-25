@@ -5,7 +5,7 @@ const islandSchema = new mongoose.Schema({
     tags: Array,
     description: String,
     images: Array,
-    owner_id: Number, // or maybe via username
+    owner_id: String, // or maybe via username
     },
     {collection : "islands"}
 );

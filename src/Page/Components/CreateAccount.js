@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './CreateAccount.css'; // Make sure to create a corresponding CSS file
 import * as apiService from '../../services/apiService'
+import { UserProfile } from '../../UserInfo'
+import { useNavigate } from 'react-router-dom';
+
 
 
 export const CreateAccount = () => {
@@ -10,6 +13,7 @@ export const CreateAccount = () => {
     username: '',
     password: '',
   });
+  const navigate = useNavigate()
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -37,6 +41,8 @@ export const CreateAccount = () => {
         try {
             const result = await apiService.createUser(userData)
             console.log(result)
+            UserProfile.loginUser(result)
+            navigate('/')
         } catch (error) {
             console.log('Error posting data: ', error)
         }
@@ -72,7 +78,7 @@ export const CreateAccount = () => {
           onChange={handleInputChange}
         />
         <input
-          type="text"
+          type="password"
           placeholder="Password"
           name="password"
           value={formData.password}

@@ -10,7 +10,8 @@
     text-align: center;
   }
   
-  .create-account-form input[type="text"] {
+  .create-account-form input[type="text"],
+  .create-account-form input[type="password"] {
     width: 100%;
     padding: 15px;
     margin-bottom: 10px;

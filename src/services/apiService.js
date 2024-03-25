@@ -52,4 +52,15 @@ export const createUser = async (data) => {
   }
 }
 
+export const loginUser = async (data) => {
+  console.log(data)
+  try {
+    const response = await apiClient.get(`/get-user/${data.username}/${data.password}`)
+    console.log(response.data)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
 // Add more functions for other API calls as needed

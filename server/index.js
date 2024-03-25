@@ -17,14 +17,8 @@ const Island = require("./Models/Island")
 // GET islands by username
 app.get('/islands/:username', async (req, res) => {
   try {
-      // First, find the user by username to get the userId
-      const user = await User.findOne({ username: req.params.username });
-      if (!user) {
-          return res.status(404).json({ message: 'User not found' });
-      }
-      
       // Next, find the islands associated with this userId
-      const islands = await Island.find({ owner_id: user.userId });
+      const islands = await Island.find({ owner_id: req.params.username });
       
       // Respond with the found islands
       res.json(islands);
@@ -57,7 +51,7 @@ app.post('/create-user', async (req, res) => {
   try {
       // Check if the user already exists
       console.log(req.body)
-      const existingUser = await User.findOne({ userName: req.body.username });
+      const existingUser = await User.findOne({ username: req.body.username });
       if (existingUser) {
           return res.status(400).json({ message: 'User already exists' });
       }
@@ -94,3 +88,17 @@ app.post('/save_island', async (req, res) => {
       res.status(500).json({ message: 'Failed to save the island' });
   }
 });
+
+app.get('/get-user/:username/:password', async (req, res) => {
+    try {
+        console.log(req.params.username, req.params.password)
+        const user = await User.findOne({ username: req.params.username, password: req.params.password })
+        if (user) {
+            res.status(200).json(user)
+        } else {
+            res.status(404).json({message: 'User not found'})
+        }
+    } catch (error) {
+        res.status(500).json({message: 'Failed to find user'})
+    }
+})
