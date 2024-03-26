@@ -22,14 +22,14 @@ export function Search() {
     ]
     const [tagList, setTagList] = useState([])
     const [recommendedUserList, setRecommendedUserList] = useState([])
-    useEffect(() => {
-        //when tagList updates update recommendedUserList
-        setRecommendedUserList(dummyList)
-    }, [tagList])
+    // useEffect(() => {
+    //     //when tagList updates update recommendedUserList
+    //     setRecommendedUserList()
+    // }, [tagList])
 
     return (
         <div>
-            <SearchBar tagList={tagList} setTagList={setTagList}/>
+            <SearchBar tagList={tagList} setTagList={setTagList} setRecommendedUserList={setRecommendedUserList}/>
             <ul>
                 {tagList.map((tag) => {
                     return(
@@ -39,9 +39,9 @@ export function Search() {
             </ul>
             <Island isCentered={true} isUserIsland={false} island={{id:0, island_tag:null}} island_image={"./Island_Images/island_2.png"}/>
             <div>
-                {recommendedUserList.map((user) => {
+                {recommendedUserList.map((island) => {
                     return(
-                        <UserLabel user={user}/>
+                        <UserLabel island={island} profile_picture={'./Profile_Pictures/blank_pp.png'} island_picture={'./Island_Images/island_1.png'}/>
                     )
                 })}
             </div>

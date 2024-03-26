@@ -1,16 +1,16 @@
 import React from 'react';
 import './UserLabel.css';
 
-export function UserLabel({ user }) {
+export function UserLabel({ island, profile_picture, island_picture }) {
     return (
         <div className="user-label">
-            <img src={require(`${user.profile_picture}`)} alt={user.name} className="user-profile-picture"/>
+            <img src={require(`${profile_picture}`)} alt={island.name} className="user-profile-picture"/>
             <div className="user-details">
-                <div className="user-name">{user.name}</div>
-                <div className="user-topic">{user.topic}</div>
+                <div className="user-name">{island.owner_id}</div>
+                <div className="user-topic">{island.islandName}</div>
             </div>
             <div className='island-image-container'>
-                <img src={require(`${user.island_picture}`)} alt="Island" className="island-image"/>
+                <img src={require(`${island_picture}`)} alt="Island" className="island-image"/>
             </div>
         </div>
     );

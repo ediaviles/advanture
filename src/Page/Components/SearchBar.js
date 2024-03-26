@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import * as apiService from '../../services/apiService'
 
 
-export function SearchBar({tagList, setTagList}) {
+export function SearchBar({tagList, setTagList, setRecommendedUserList}) {
     const [tag, setTag] = useState("")
 
     const handleChange = (e) => {
@@ -19,6 +19,7 @@ export function SearchBar({tagList, setTagList}) {
           try {
             console.log(tags)
             const result = await apiService.getIslandsFromTags({tags: tags})
+            setRecommendedUserList(result)
             console.log(result)
           } catch (error) {
             console.log('Error fetching data: ', error)
