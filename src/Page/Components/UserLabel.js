@@ -1,9 +1,9 @@
 import React from 'react';
 import './UserLabel.css';
 
-export function UserLabel({ island, profile_picture, island_picture }) {
+export function UserLabel({ island, profile_picture, island_picture, idx, handleSetIslandDisplay }) {
     return (
-        <div className="user-label">
+        <div className="user-label" onClick={() => {handleSetIslandDisplay(idx)}}>
             <img src={require(`${profile_picture}`)} alt={island.name} className="user-profile-picture"/>
             <div className="user-details">
                 <div className="user-name">{island.owner_id}</div>
