@@ -30,7 +30,7 @@
     background-color: #e0e0e0; /* Change to the color you want for the selected icon */
 }
 
-.faSearch, .faHome, .faComment {
+.faSearch, .faHome, .faComment .faGlobal {
     /* You may adjust icon size and color here */
     font-size: 24px;
     color: #6c757d;

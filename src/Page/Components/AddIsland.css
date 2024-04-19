@@ -1,0 +1,183 @@
+/* AddIsland.css */
+
+.add-island-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 400px; /* Adjust the width as necessary */
+    margin: auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-island-container .input-text,
+  .add-island-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+  
+  .add-island-container textarea {
+    height: 100px; /* Adjust the height as necessary */
+    resize: none;
+  }
+  
+  .add-island-container input[type="file"] {
+    display: none; /* Hide the default input */
+  }
+  
+  .add-island-container .image-upload-label {
+    display: block;
+    height: 100px;
+    background-color: #a0c4ff;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .add-island-container .image-upload-label:after {
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: white;
+  }
+  
+  /* .add-island-container .tag-input-container {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .add-island-container .tag-input-container input {
+    flex-grow: 1;
+  } */
+  
+  .add-island-container button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .add-island-container button:hover {
+    background-color: #45a049;
+  }
+  
+  .island-tag-input {
+    flex-grow: 1; /* Ensures the input takes up available space */
+    border: none; /* No border */
+    background-color: transparent; /* Transparent background */
+    color: #606060; /* Grey text color */
+    padding-left: 10px; /* Padding inside the input */
+    font-size: 16px; /* Size of the input text */
+  }
+
+  .island-tag-input:focus {
+    outline: none; /* No outline on focus */
+  }
+  
+  .add-tag-button {
+    background-color: #4caf50;
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 15px; /* Rounded corners */
+    padding: 5px 15px; /* Padding inside the button */
+    cursor: pointer; /* Pointer cursor on hover */
+    outline: none; /* No outline */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+    margin-left: 10px;
+  }
+  
+  .island-tags-container {
+    display: flex;
+    gap: 10px;
+    max-width: 100%;
+    overflow-x: auto; /* allows horizontal scrolling */
+    white-space: nowrap; /* prevents wrapping to a new line */
+    padding-bottom: 10px; /* gives space for the scrollbar */
+    margin: 10px 0;
+  }
+  
+  .add-tag {
+    display: inline-block; /* inline-block for horizontal layout */
+    align-items: center;
+    background-color: #e0e0e0; /* light grey background */
+    border-radius: 14px; /* rounded corners */
+    padding: 5px 10px;
+    font-size: 0.875rem; /* smaller font size */
+    cursor: pointer;
+  }
+
+  .input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .description-input {
+    flex-grow: 1;
+    margin-right: 10px; /* To give space between the text area and the upload label */
+  }
+
+  .image-upload-label {
+    /* Previous styles you've set, plus any new adjustments for positioning */
+    cursor: pointer;
+    width: 100%;
+    /* Adjust width and height if needed */
+  }
+  
+  .image-preview-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+  
+  .image-preview {
+    max-width: 100px; /* Adjust width as needed */
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  /* You might want to hide the scrollbar visually */
+  .image-preview-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  .image-preview-container {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .add-tag-input-container {
+    display: flex;
+    align-items: center;
+    background-color: white; /* Light grey background */
+    border-radius: 20px; /* Rounded corners */
+    padding: 5px; /* Padding around content */
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-sizing: border-box;
+  }
+  
