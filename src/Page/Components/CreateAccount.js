@@ -12,6 +12,7 @@ export const CreateAccount = () => {
     lastName: '',
     username: '',
     password: '',
+    interests: [],
   });
   const navigate = useNavigate()
 
@@ -52,6 +53,17 @@ export const CreateAccount = () => {
     postNewUser(formData)
   };
 
+  const handleInterestClick = (interest) => {
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      interests: prevFormData.interests.includes(interest)
+        ? prevFormData.interests.filter(i => i !== interest)
+        : [...prevFormData.interests, interest]
+    }));
+  };
+
+  const interests = ["interior design", "architecture", "cooking", "furniture", "sports", "fashion", "film", "art", "comics", "health", "medicine", "design", "politics", "books", "hardware"];
+
   return (
     <div className="create-account-container">
       <form className="create-account-form" onSubmit={handleSubmit}>
@@ -84,6 +96,19 @@ export const CreateAccount = () => {
           value={formData.password}
           onChange={handleInputChange}
         />
+        <div className="interests-container">
+          <p>What are your interests?</p>
+          <div className="interests-tags">
+            {interests.map((interest, index) => (
+              <div 
+                key={index} 
+                className={`interest-tag ${formData.interests.includes(interest) ? 'selected' : ''}`} 
+                onClick={() => handleInterestClick(interest)}>
+                #{interest}
+              </div>
+            ))}
+          </div>
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>

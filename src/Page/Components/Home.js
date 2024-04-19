@@ -32,7 +32,7 @@ export function Home() {
         console.log(UserProfile.getUserId())
         try {
             const savedIsland = await apiService.saveIsland({island: island, username: UserProfile.getUsername()})
-            setIslands(prevIslands => [...prevIslands, island]);
+            setIslands(prevIslands => [...prevIslands, savedIsland]);
         } catch (error) {
             console.error('Error saving data: ', error)
         }

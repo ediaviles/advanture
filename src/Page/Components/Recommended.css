@@ -1,0 +1,22 @@
+.recommended-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); /* This creates a responsive grid */
+    grid-gap: 15px;
+    padding: 15px;
+    justify-items: center;
+  }
+  
+  .recommended-item {
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+    border-radius: 15px; /* Adjust the border-radius to match your design */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: adds shadow for depth */
+  }
+  
+  .recommended-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the images cover the div without stretching */
+  }
+  

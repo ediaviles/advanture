@@ -1,5 +1,6 @@
 import {Home} from './Components/Home'
 import {Search} from './Components/Search'
+import { Recommended } from './Components/Recommended'
 import './Page.css'
 
 export function Page({navBarIcon}) {
@@ -8,8 +9,10 @@ export function Page({navBarIcon}) {
             case 1:
                 return <Search/>;
             case 2:
-                return <Home/>;
+                return <Recommended/>
             case 3:
+                return <Home/>;
+            case 4:
                 return <div>message</div>; // temporary
             default:
             // Optional: render a default component or null if no icon is selected

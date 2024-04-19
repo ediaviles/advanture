@@ -11,7 +11,7 @@ import { UserProfile } from './UserInfo'
 function App() {
   
   const MainApp = () => {
-    const [navbarIcon, setNavbarIcon] = useState(2)
+    const [navbarIcon, setNavbarIcon] = useState(3)
     return (
       <div className={"container"}>
         <NavBar navBarIcon={navbarIcon} setNavBarIcon={setNavbarIcon}/>

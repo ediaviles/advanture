@@ -7,6 +7,28 @@ export function AddIsland({ onSave }) {
   const [images, setImages] = useState([]);
   const [tags, setTags] = useState([])
   const [tag, setTag] = useState('')
+
+  const handleImageChange = (e) => {
+    const files = Array.from(e.target.files);
+    const fileReaders = [];
+    const imageStrings = [];
+
+    files.forEach(file => {
+      const fileReader = new FileReader();
+      
+      fileReader.onloadend = () => {
+        imageStrings.push(fileReader.result);
+        if (imageStrings.length === files.length) {
+          setImages(imageStrings);
+        }
+      };
+
+      fileReader.readAsDataURL(file);
+      fileReaders.push(fileReader);
+    });
+    console.log(images)
+  };
+  
   const handleSave = () => {
     // Here you would typically send the data to your backend or directly update your state
     onSave({ islandName: name, description: description, images: images, tags: tags });
@@ -25,6 +47,7 @@ export function AddIsland({ onSave }) {
     <div className="add-island-container">
       <input type="text" placeholder="Island Name" value={name} onChange={e => setName(e.target.value)} />
       <textarea placeholder="Description" value={description} onChange={e => setDescription(e.target.value)} />
+      <input type="file" multiple onChange={handleImageChange} />
       {tags.map((tag, idx) => {
         return(
           <ul onClick={() => removeTag(idx)}>

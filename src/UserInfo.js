@@ -3,6 +3,7 @@ export var UserProfile = (function() {
     var lastName = ""
     var username = ""
     var userId = ""
+    var interests = []
 
     var setFirstName = function(first_name) {
         firstName = first_name
@@ -18,6 +19,14 @@ export var UserProfile = (function() {
 
     var setUserId = function(user_id) {
         userId = user_id
+    }
+
+    var setInterests = function(user_interests) {
+        interests = user_interests
+    }
+
+    var getInterests = function () {
+        return interests
     }
 
     var getFirstName = function() {
@@ -41,6 +50,7 @@ export var UserProfile = (function() {
         setLastName(user.lastName)
         setUsername(user.username)
         setUserId(user.id)
+        setInterests(user.interests)
         window.dispatchEvent(new CustomEvent('user-login-status-changed'));
 
     }
@@ -50,6 +60,8 @@ export var UserProfile = (function() {
         setLastName: setLastName,
         setUsername: setUsername,
         setUseId: setUserId,
+        setInterests: setInterests,
+        getInterests: getInterests,
         getFirstName: getFirstName,
         getLastName: getLastName,
         getUsername: getUsername,

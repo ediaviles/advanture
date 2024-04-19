@@ -1,11 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faHome, faMessage } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faHome, faMessage, faGlobe } from '@fortawesome/free-solid-svg-icons';
 import './NavBar.css'
 
 const icons = [
     { id: 1, icon: faSearch},
-    { id: 2, icon: faHome},
-    { id: 3, icon: faMessage},
+    { id: 2, icon: faGlobe},
+    { id: 3, icon: faHome},
+    { id: 4, icon: faMessage}
   ];
 
 
