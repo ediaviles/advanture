@@ -27,13 +27,13 @@ export function Search() {
                 <div>
                     <SearchBar tagList={tagList} setTagList={setTagList} setRecommendedUserList={setRecommendedUserList}/>
                     
-                    <ul>
+                    <div>
                         {tagList.map((tag) => {
                             return(
                                 <TagLabel tag={tag} color={'red'}/>
                             )
                         })}
-                    </ul>
+                    </div>
                     <Island isCentered={true} isUserIsland={false} island={{id:0, island_tag:null}} island_image={"./Island_Images/island_2.png"}/>
                     <div>
                         {recommendedUserList.map((island, idx) => {

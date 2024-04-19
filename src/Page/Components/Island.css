@@ -3,7 +3,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh; /* Use the full height of the viewport */
+    height: 50vh; /* Use the full height of the viewport */
+    margin-top: 25px;
 }
   
   /* Style for positioning the image at the bottom right */
