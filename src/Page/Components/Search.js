@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import {TagLabel} from './tagLabel'
 import {UserLabel} from './UserLabel'
 import { IslandInfo } from './IslandInfo';
+import { UserProfile } from '../../UserInfo';
 
 export function Search() {
     const [tagList, setTagList] = useState([])
@@ -21,6 +22,10 @@ export function Search() {
         setIslandDisplay(-1)
     }
 
+    const handleRemoveTag = (tagIdx) => {
+        setTagList(prevTags => prevTags.filter((_, idx) => idx !== tagIdx))
+    }
+
     const searchPage = () => {
         if (islandDisplay === -1) {
             return (
@@ -28,9 +33,9 @@ export function Search() {
                     <SearchBar tagList={tagList} setTagList={setTagList} setRecommendedUserList={setRecommendedUserList}/>
                     
                     <div>
-                        {tagList.map((tag) => {
+                        {tagList.map((tag, idx) => {
                             return(
-                                <TagLabel tag={tag} color={'red'}/>
+                                <TagLabel tag={tag} color={'red'} handleRemove={handleRemoveTag} idx={idx}/>
                             )
                         })}
                     </div>
@@ -46,7 +51,7 @@ export function Search() {
             )
         } else {
             return (
-                <IslandInfo island={recommendedUserList[islandDisplay]} handleCloseIslandInfo={handleCloseIslandInfo}/>
+                <IslandInfo island={recommendedUserList[islandDisplay]} handleCloseIslandInfo={handleCloseIslandInfo} isFollowed={UserProfile.getFollowing().includes(recommendedUserList[islandDisplay]._id)}/>
             )
         }
     }

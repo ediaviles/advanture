@@ -63,4 +63,17 @@ export const loginUser = async (data) => {
   }
 }
 
+export const updateFollowing = async (data) => {
+  console.log('inupdateFollowing:', data)
+  try {
+    const response = await apiClient.put(`/update-following`, {
+      username: data.username,
+      following: data.following.join(',')
+    })
+    return response.data.following
+  } catch (error) {
+    throw error
+  }
+}
+
 // Add more functions for other API calls as needed

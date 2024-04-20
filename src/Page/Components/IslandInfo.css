@@ -77,3 +77,17 @@
     }
   }
   
+  .island-favorite-icon {
+    cursor: pointer;
+    color: #999; /* Default color, gray */
+    margin-left: 8px; /* Space between the title and the heart */
+}
+
+.island-favorite-icon:hover {
+    color: #f00; /* Color changes to red on hover */
+}
+
+/* If favorited, the heart is always red */
+.island-info-header .fa-heart {
+    color: #f00; /* Red color for favorited heart */
+}

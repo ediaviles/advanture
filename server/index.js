@@ -106,3 +106,21 @@ app.get('/get-user/:username/:password', async (req, res) => {
         res.status(500).json({message: 'Failed to find user'})
     }
 })
+
+app.put('/update-following', async (req, res) => {
+    const username = req.body.username
+    const temp_following = req.body.following
+    console.log(temp_following)
+    const following = temp_following ? temp_following.split(',') : [];
+    console.log('following:', following)
+    try {
+        const updatedUser = await User.findOneAndUpdate(
+        { username },
+        { $set: { following } },
+        { new: true } // returns the updated document
+        );
+        res.status(200).json(updatedUser);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+})

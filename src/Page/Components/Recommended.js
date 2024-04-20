@@ -49,7 +49,7 @@ export function Recommended() {
               );
         } else {
             return (
-                <IslandInfo island={recommendedProjects[islandDisplay]} handleCloseIslandInfo={handleCloseIslandInfo}/>
+                <IslandInfo island={recommendedProjects[islandDisplay]} handleCloseIslandInfo={handleCloseIslandInfo} isFollowed={UserProfile.getFollowing().includes(recommendedProjects[islandDisplay]._id)}/>
             )
         }
     }
