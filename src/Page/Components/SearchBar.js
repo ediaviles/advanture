@@ -1,6 +1,8 @@
 import './SearchBar.css'
 import React, { useState } from 'react';
 import * as apiService from '../../services/apiService'
+import { UserProfile } from '../../UserInfo'
+
 
 
 export function SearchBar({tagList, setTagList, setRecommendedUserList}) {
@@ -18,7 +20,7 @@ export function SearchBar({tagList, setTagList, setRecommendedUserList}) {
         const getIslandsFromTagList = async(tags) => {
           try {
             console.log(tags)
-            const result = await apiService.getIslandsFromTags({tags: tags})
+            const result = await apiService.getIslandsFromTags({tags: tags, username: UserProfile.getUsername()})
             setRecommendedUserList(result)
             console.log(result)
           } catch (error) {

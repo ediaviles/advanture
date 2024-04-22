@@ -1,0 +1,44 @@
+.messages-interface {
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9; /* Light gray background */
+    border: 1px solid #ddd; /* Light border for the whole interface */
+    border-radius: 4px; /* Rounded corners */
+    max-width: 600px; /* Max width of the interface */
+    margin: 20px auto; /* Centering the interface */
+  }
+  
+  .message-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee; /* Light border between messages */
+  }
+  
+  .avatar {
+    width: 50px; /* Avatar size */
+    height: 50px;
+    border-radius: 50%; /* Circle shaped avatar */
+    margin-right: 15px;
+    object-fit: cover; /* Ensure the images are nicely fitted */
+  }
+  
+  .message-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .name {
+    font-weight: bold;
+  }
+  
+  .message {
+    color: #666; /* Dark gray text for the message */
+  }
+  
+  .no-messages {
+    text-align: center;
+    padding: 20px;
+    color: #888; /* Medium gray text */
+  }
+  

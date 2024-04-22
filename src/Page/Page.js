@@ -2,6 +2,7 @@ import {Home} from './Components/Home'
 import {Search} from './Components/Search'
 import { Recommended } from './Components/Recommended'
 import './Page.css'
+import MessageInterface from './Components/MessageInterface'
 
 export function Page({navBarIcon}) {
     const loadPageContent = () => {
@@ -13,7 +14,7 @@ export function Page({navBarIcon}) {
             case 3:
                 return <Home/>;
             case 4:
-                return <div>message</div>; // temporary
+                return <MessageInterface/>; // temporary
             default:
             // Optional: render a default component or null if no icon is selected
                 return <div>default</div>;

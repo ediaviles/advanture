@@ -35,7 +35,7 @@ export const getIslandsFromTags = async (data) => {
   console.log(data)
   try {
     const queryString = data.tags.join(',');
-    const response = await apiClient.get(`/islands-by-tags?tags=${encodeURIComponent(queryString)}`);
+    const response = await apiClient.get(`/islands-by-tags?tags=${encodeURIComponent(queryString)}&username=${data.username}`);
     return response.data
   } catch (error) {
     throw error

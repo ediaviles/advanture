@@ -36,9 +36,11 @@ app.get('/islands/:username', async (req, res) => {
 app.get('/islands-by-tags', async (req, res) => {
     try {
         const tags = req.query.tags ? req.query.tags.split(',') : [];
+        const username = req.query.username
         console.log(tags)
         const islands = await Island.find({
-            tags: { $in: tags }
+            tags: { $in: tags },
+            owner_id: { $ne: username }
         })
         console.log(islands)
         res.json(islands);

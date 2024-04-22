@@ -12,7 +12,19 @@ export function Recommended() {
     useEffect(() => {
         const loadRecommendedIslands = async (interests) => {
             try {
-                const result = await apiService.getIslandsFromTags({tags: interests})
+                const result = await apiService.getIslandsFromTags({tags: interests, username: UserProfile.getUsername()})
+                const shuffleArray = (array) => {
+                    for (let i = array.length - 1; i > 0; i--) {
+                        // Generate a random index from 0 to i
+                        const j = Math.floor(Math.random() * (i + 1));
+                        
+                        // Swap elements at indices i and j
+                        const temp = array[i];
+                        array[i] = array[j];
+                        array[j] = temp;
+                    }
+                }
+                shuffleArray(result)
                 console.log(result)
                 setRecommendedProjects(result)
             } catch (error) {
