@@ -7,7 +7,7 @@ import { UserProfile } from '../../UserInfo'
 import * as apiService from '../../services/apiService'
 
 
-export function IslandInfo({ island, handleCloseIslandInfo, isFollowed }) {
+export function IslandInfo({ island, handleCloseIslandInfo, isFollowed, canFollow=true }) {
     const [isFavorited, setIsFavorited] = useState(isFollowed);
 
     const toggleFavorite = async () => {
@@ -28,10 +28,21 @@ export function IslandInfo({ island, handleCloseIslandInfo, isFollowed }) {
         setIsFavorited(!isFavorited);
     }
 
+    const renderIcon = () => {
+        console.log(canFollow)
+        if (canFollow === false) {
+            return(<></>)
+        } else {
+            return (
+                <FontAwesomeIcon icon={isFavorited ? faHeartSolid : faHeartRegular} onClick={toggleFavorite} className="island-favorite-icon"/>
+            )
+        }
+    }
+
     return (
         <div className="island-info-container">
             <div className="island-info-header">
-                <h1>{island.islandName} <FontAwesomeIcon icon={isFavorited ? faHeartSolid : faHeartRegular} onClick={toggleFavorite} className="island-favorite-icon"/></h1>
+                <h1>{island.islandName} {renderIcon()}</h1>
                 <div className="island-tags">
                     {island.tags.map((tag, index) => (
                         <span key={index} className="island-tag">{tag}</span>

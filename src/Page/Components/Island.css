@@ -9,7 +9,6 @@
   
   /* Style for positioning the image at the bottom right */
 .island {
-    position: fixed; /* Fixed position */
     bottom: 20px; /* 20 pixels from the bottom */
     right: 20px; /* 20 pixels from the right */
 }

@@ -4,13 +4,23 @@ import './Home.css'
 import {AddIsland} from './AddIsland'
 import * as apiService from '../../services/apiService'
 import { UserProfile } from '../../UserInfo'
+import { IslandInfo } from './IslandInfo';
+
 
 //Islands will have three attributes, id, island_image, island_tag
 
 export function Home() {
-    const [selectedIsland, setSelectedIsland] = useState(null)
+    const [islandDisplay, setIslandDisplay] = useState(-1)
     const [islands, setIslands] = useState([])
     const [isAdding, setIsAdding] = useState(false); // State to manage AddIsland component visibility
+    
+    const handleSetIslandDisplay = (idx) => {
+        setIslandDisplay(idx)
+    }
+    const handleCloseIslandInfo = () => {
+        setIslandDisplay(-1)
+    }
+
 
     useEffect(() => {
         // This code will run only once after the component mounts
@@ -39,15 +49,28 @@ export function Home() {
         
         setIsAdding(false); // Hide the AddIsland component after saving
     };
-    return (
-        // TODO: load user's island, and islands that the user is following
-        <div className={"container"}>
-            {isAdding && <AddIsland onSave={handleAddIsland} />}
-            <Island isCentered={true} isUserIsland={true} island={{id:0, island_tag:null}} island_image={"./Island_Images/island_1.png"}/>
-            {islands.map((island) => {
-                return(<Island isCentered={false} isUserIsland={false} island={island} island_image={"./Island_Images/island_2.png"}/>)
-            })}
-            <button className='floating-button' onClick={() => setIsAdding(true)}>+</button>
-        </div>
-    )
+    const homePage = () => {
+        console.log(islandDisplay)
+        if (islandDisplay === -1) {
+            return (
+                <div className={"home-container"}>
+                    {isAdding && <AddIsland onSave={handleAddIsland} />}
+                    <Island isCentered={true} isUserIsland={true} island={{id:0, island_tag:null}} island_image={"./Island_Images/island_1.png"} idx={-1} displayIsland={handleSetIslandDisplay}/>
+                    
+                    <div className="islands-container">
+                        {islands.map((island, idx) => {
+                            return(<Island isCentered={false} isUserIsland={false} island={island} island_image={"./Island_Images/island_2.png"} idx={idx} displayIsland={handleSetIslandDisplay} />)
+                        })}
+                    </div>
+                    <button className='floating-button' onClick={() => setIsAdding(true)}>+</button>
+                </div> 
+            )
+        } else {
+            return (
+                <IslandInfo island={islands[islandDisplay]} handleCloseIslandInfo={handleCloseIslandInfo} isFollowed={false} canFollow={false}/>
+            )
+        }
+    }
+
+    return homePage()
 }
