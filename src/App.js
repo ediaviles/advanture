@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { CreateAccount } from './Page/Components/CreateAccount'
 import { Login } from './Page/Components/Login'
 import { UserProfile } from './UserInfo'
-
+import {NetworkGraph} from './NetworkGraph'
 
 function App() {
   
@@ -57,6 +57,7 @@ function App() {
             <Route path="/create-account" element={<Navigate to="/"/>}/>
           )    
         }
+        <Route path="/graph" element={<NetworkGraph />}/>
       </Routes>
     </BrowserRouter>
   )

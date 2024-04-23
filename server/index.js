@@ -126,3 +126,39 @@ app.put('/update-following', async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 })
+
+app.get('/unique-usernames/:userId', async (req, res) => {
+    try {
+        const userId = req.params.userId;
+        console.log("userId is", userId)
+        const user = await User.findOne({username: userId});
+        console.log(user)
+
+        if (!user) {
+            return res.status(404).send('User not found');
+        }
+
+        const uniqueUsernames = await getUniqueUsernames(user.following);
+        res.json(uniqueUsernames);
+    } catch (error) {
+        res.status(500).send('Server error');
+    }
+});
+
+app.get('/usernames', async (req, res) => {
+    try {
+        const users = await User.find({}).select('username -_id'); // Select only the username field, exclude the _id
+        const usernames = users.map(user => user.username);
+        res.json(usernames);
+    } catch (error) {
+        res.status(500).send('Server error: ' + error.message);
+    }
+});
+
+async function getUniqueUsernames(islandIds) {
+    const islands = await Island.find({ _id: { $in: islandIds } }).select('owner_id');
+    const ownerIds = islands.map(island => island.owner_id);
+    const uniqueOwnerIds = [...new Set(ownerIds)]; // Removes duplicates
+    const owners = await User.find({ username: { $in: uniqueOwnerIds } }).select('username');
+    return owners.map(owner => owner.username);
+}

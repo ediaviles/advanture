@@ -76,4 +76,23 @@ export const updateFollowing = async (data) => {
   }
 }
 
+export const getAllUsers = async () => {
+  try {
+    const response = await apiClient.get(`/usernames`)
+    console.log("all users\n", response.data)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const getUsersFromUsername = async (data) => {
+  try {
+    const response = await apiClient.get(`/unique-usernames/${data.username}`)
+    return response.data
+  } catch (error) {
+    throw error
+  }
+}
+
 // Add more functions for other API calls as needed
